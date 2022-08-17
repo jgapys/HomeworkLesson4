@@ -8,4 +8,8 @@ public class Dimension {
         this.width = width;
         this.trankCapacity = trankCapacity;
     }
+
+    public int getTrankCapacity() {
+        return trankCapacity;
+    }
 }

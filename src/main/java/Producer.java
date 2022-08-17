@@ -6,4 +6,13 @@ public class Producer {
         this.model = model;
         this.type = type;
     }
+
+    public String getModel() {
+        return model;
+    }
+
+    @Override
+    public String toString() {
+        return "model - " + model + ", type - " + type;
+    }
 }

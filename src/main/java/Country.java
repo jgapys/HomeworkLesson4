@@ -6,4 +6,9 @@ public class Country {
         this.countryName = countryName;
         this.countrySign = countrySign;
     }
+
+    @Override
+    public String toString() {
+        return countryName + " - " + countrySign;
+    }
 }
