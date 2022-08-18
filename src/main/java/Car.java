@@ -29,18 +29,22 @@ public class Car {
         return dimensions;
     }
 
-    public static List<Car> findCarByProdAutoGearAndTrankCap(ArrayList<Car> cars, String producer, int trankCapacity) {
+    public static List<Car> findCarByProdAutoGearAndTrankCap(ArrayList<Car> cars, String producer, boolean isAutomaticGear, int trankCapacity) {
         return cars
                 .stream()
                 .filter(i -> i.getProducer().getModel().equals(producer)
-                        && i.isAutomaticGear()
+                        && i.isAutomaticGear() == isAutomaticGear
                         && i.getDimensions().stream().anyMatch(j -> j.getTrankCapacity() > trankCapacity))
                 .collect(Collectors.toList());
     }
 
     public static void printFilteredCarsCountry(List<Car> filteredCars) {
-        for (Car filteredCar : filteredCars) {
-            System.out.println(filteredCar.market.getCountries());
+        if (filteredCars.isEmpty()) {
+            System.out.println("There is no data that matches the given filters");
+        } else {
+            for (Car filteredCar : filteredCars) {
+                System.out.println(filteredCar.market.getCountries());
+            }
         }
     }
 }
